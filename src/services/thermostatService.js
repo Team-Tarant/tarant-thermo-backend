@@ -8,11 +8,16 @@ function getAvailableDevices() {
     .catch(e => console.error(e))
 }
 
-function getThermostateStats(thermoId) {
-  return request.get(ENTRYPOINT + `/devices/${thermoId}/CHAR_ECO_TEMPERATURE_MODE`)
+async function getThermostateStats(thermoId) {
+  const response = await request.get(ENTRYPOINT + `/devices/${thermoId}/CHAR_ECO_TEMPERATURE_MODE`)
     .then(JSON.parse)
-    .then(parseThermoData)
     .catch(e => console.error(e))
+  
+  if (response.data[8] === 255) {
+    return await getThermostateStats(thermoId)
+  } else {
+    return parseThermoData(response)
+  }
 }
 
 function increaseTemperature(thermoId, precent) {

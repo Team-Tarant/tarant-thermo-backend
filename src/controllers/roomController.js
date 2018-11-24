@@ -1,18 +1,20 @@
 const express = require('express')
 const rooms = require('../fixtures/rooms')
 
-const {increaseTemperature} = require('../services/thermostatService')
+const {increaseTemperature, getThermostateStats} = require('../services/thermostatService')
 
 const roomMap = {}
 
 function setRoomMap() {
-  rooms.forEach(r => {
+  rooms.forEach(async r => {
+    const {roomTemperature} = r.thermoId ? await getThermostateStats(r.thermoId) : {roomTemperature: null}
     roomMap[r.id] = {
       id: r.id,
       occupiedFrom: r.occupiedFrom,
       occupiedTo: r.occupiedTo,
       thermoId: r.thermoId,
-      isWarmingUp: r.isWarmingUp
+      isWarmingUp: r.isWarmingUp,
+      roomTemperature
     }
   })
 }
