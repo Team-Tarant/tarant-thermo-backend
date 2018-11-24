@@ -7,14 +7,13 @@ const roomMap = {}
 
 function setRoomMap() {
   rooms.forEach(async r => {
-    const {roomTemperature} = r.thermoId ? await getThermostateStats(r.thermoId) : {roomTemperature: null}
+    //const {roomTemperature} = r.thermoId ? await getThermostateStats(r.thermoId) : {roomTemperature: null}
     roomMap[r.id] = {
       id: r.id,
       occupiedFrom: r.occupiedFrom,
       occupiedTo: r.occupiedTo,
       thermoId: r.thermoId,
-      isWarmingUp: r.isWarmingUp,
-      roomTemperature
+      isWarmingUp: r.isWarmingUp
     }
   })
 }
@@ -39,8 +38,7 @@ route.patch('/:id', (req, res) => {
     occupiedFrom: new Date(body.occupiedFrom),
     occupiedTo: new Date(body.occupiedTo)
   }
-
-  res.json(rooms[Number(req.params.id)])
+  res.json(roomMap[Number(req.params.id)])
 })
 
 // For demo
@@ -55,8 +53,8 @@ function checkForHeatup() {
   keys.forEach(k => {
     const room = roomMap[k]
     if (!room.occupiedFrom || !room.occupiedTo) return
-    const deltaT = room.occupiedFrom.getTime() - Date.now()
-    if (deltaT <= (1000 * 60 * 60 * 3) && room.thermoId && !room.isWarmingUp) {
+    const deltaT = (room.occupiedFrom.getTime() - (120 * 60000)) - Date.now()
+    if (deltaT <= (60000 * 180) && room.thermoId && !room.isWarmingUp) {
       increaseTemperature(room.thermoId, 100)
       roomMap[room.id] = {
         ...room,

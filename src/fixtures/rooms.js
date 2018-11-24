@@ -56,7 +56,7 @@ const rooms = [
   {
     id: 107,
     occupied: false,
-    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 100),
+    occupiedFrom: new Date(Date.now() - 1000 * 60 * 60 * 100),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 10000),
     thermoId: null,
     isWarmingUp: false,
@@ -92,7 +92,7 @@ const rooms = [
   {
     id: 203,
     occupied: false,
-    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 4556),
+    occupiedFrom: new Date(Date.now() - 1000 * 60 * 60 * 4556),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 89889),
     thermoId: null,
     isWarmingUp: false,
