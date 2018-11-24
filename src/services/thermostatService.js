@@ -14,8 +14,10 @@ function getThermostateStats(thermoId) {
 }
 
 function parseThermoData(rawData) {
+  const buf = Buffer.from(rawData.data)
   return {
-    isHeatingOn: rawData.data[8] === 0 ? false : true
+    isHeatingOn: rawData.data[8] === 0 ? false : true,
+    thermostatTargetTemp: buf.slice(1,3).readInt16LE() / 10
   }
 }
 
