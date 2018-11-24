@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const {getAvailableDevices} = require('./services/thermostatService')
 const cors = require('cors')

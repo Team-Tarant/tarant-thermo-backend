@@ -2,6 +2,7 @@ const express = require('express')
 const rooms = require('../fixtures/rooms')
 
 const {increaseTemperature, getThermostateStats} = require('../services/thermostatService')
+const {getWeatherForDate} = require('../services/weatherService')
 
 const roomMap = {}
 
@@ -48,14 +49,21 @@ route.get('/reset', (req, res) => {
   res.status(200).send()
 })
 
-function checkForHeatup() {
+async function checkForHeatup() {
   const keys = Object.keys(roomMap)
-  keys.forEach(k => {
+  keys.forEach(async k => {
     const room = roomMap[k]
     if (!room.occupiedFrom || !room.occupiedTo) return
     const deltaT = (room.occupiedFrom.getTime() - (120 * 60000)) - Date.now()
     if (deltaT <= (60000 * 180) && room.thermoId && !room.isWarmingUp) {
-      increaseTemperature(room.thermoId, 100)
+      const {tmp} = await getWeatherForDate(room.occupiedFrom)
+      let warmUpPrecent = 60
+      if (tmp < 0.0) {
+        warmUpPrecent = 100
+      } else if (tmp > 25.0) {
+        warmUpPrecent = 20
+      }
+      increaseTemperature(room.thermoId, warmUpPrecent)
       roomMap[room.id] = {
         ...room,
         isWarmingUp: true
