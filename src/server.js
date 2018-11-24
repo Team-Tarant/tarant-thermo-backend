@@ -1,11 +1,15 @@
 const express = require('express')
-const {getAvailableDevices, getThermostateStats, increaseTemperature} = require('./services/thermostatService')
+const {getAvailableDevices} = require('./services/thermostatService')
 const cors = require('cors')
+
+const roomController = require('./controllers/roomController')
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+app.use('/api/rooms', roomController)
 
 app.get('/api/devices', (req, res) => {
   getAvailableDevices().then(devices => {
@@ -13,11 +17,13 @@ app.get('/api/devices', (req, res) => {
   })
 })
 
+/*
 app.get('/api/devices/:thermoId/stats', (req, res) => {
   getThermostateStats(req.params.thermoId).then(stats => {
     res.json(stats)
   })
 })
+
 
 app.patch('/api/devices/:thermoId/', (req, res) => {
   const { precent, tier } = req.body
@@ -41,6 +47,7 @@ app.patch('/api/devices/:thermoId/', (req, res) => {
     return res.status(200).send()
   }
 })
+*/
 
 app.listen(3000, () => console.log('Listening on 3000'))
 
