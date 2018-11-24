@@ -11,7 +11,8 @@ function setRoomMap() {
       id: r.id,
       occupiedFrom: r.occupiedFrom,
       occupiedTo: r.occupiedTo,
-      thermoId: r.thermoId
+      thermoId: r.thermoId,
+      isWarmingUp: r.isWarmingUp
     }
   })
 }
@@ -33,8 +34,8 @@ route.patch('/:id', (req, res) => {
   const body = req.body
   roomMap[Number(req.params.id)] = {
     ...room,
-    occupiedFrom: body.occupiedFrom,
-    occupiedTo: body.occupiedTo
+    occupiedFrom: new Date(body.occupiedFrom),
+    occupiedTo: new Date(body.occupiedTo)
   }
 
   res.json(rooms[Number(req.params.id)])
@@ -42,6 +43,7 @@ route.patch('/:id', (req, res) => {
 
 // For demo
 route.get('/reset', (req, res) => {
+  shutDownAllHeating()
   setRoomMap()
   res.status(200).send()
 })
@@ -50,7 +52,26 @@ function checkForHeatup() {
   const keys = Object.keys(roomMap)
   keys.forEach(k => {
     const room = roomMap[k]
-    
+    if (!room.occupiedFrom || !room.occupiedTo) return
+    const deltaT = room.occupiedFrom.getTime() - Date.now()
+    if (deltaT <= (1000 * 60 * 60 * 3) && room.thermoId && !room.isWarmingUp) {
+      increaseTemperature(room.thermoId, 100)
+      roomMap[room.id] = {
+        ...room,
+        isWarmingUp: true
+      }
+    } 
+  })
+}
+
+function shutDownAllHeating() {
+  const keys = Object.keys(roomMap)
+  keys.forEach(k => {
+    const room = roomMap[k]
+    if (room.thermoId && room.isWarmingUp) {
+      console.log('Found room with heat on.')
+      increaseTemperature(room.thermoId, 0)
+    }
   })
 }
 
