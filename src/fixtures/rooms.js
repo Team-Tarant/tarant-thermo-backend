@@ -1,6 +1,6 @@
 const rooms = [
   {
-    id: 1,
+    id: 101,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 25),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 49),
@@ -8,7 +8,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 2,
+    id: 102,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 45),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 100),
@@ -16,7 +16,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 3,
+    id: 103,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 666),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 777),
@@ -24,7 +24,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 4,
+    id: 104,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 33),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 44),
@@ -32,7 +32,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 5,
+    id: 105,
     occupied: false,
     occupiedFrom: null,
     occupiedTo: null,
@@ -40,7 +40,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 6,
+    id: 106,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 100),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 1000),
@@ -48,7 +48,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 7,
+    id: 107,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 100),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 10000),
@@ -56,7 +56,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 8,
+    id: 201,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 99),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 789),
@@ -64,7 +64,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 9,
+    id: 202,
     occupied: false,
     occupiedFrom: null,
     occupiedTo: null,
@@ -72,7 +72,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 10,
+    id: 203,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 344),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 5666),
@@ -80,7 +80,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 11,
+    id: 203,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 4556),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 89889),
@@ -88,7 +88,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 12,
+    id: 204,
     occupied: false,
     occupiedFrom: null,
     occupiedTo: null,
@@ -96,7 +96,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 13,
+    id: 205,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 7778),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 58985),
@@ -104,7 +104,7 @@ const rooms = [
     isWarmingUp: false
   },
   {
-    id: 14,
+    id: 206,
     occupied: false,
     occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 897),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 49),
