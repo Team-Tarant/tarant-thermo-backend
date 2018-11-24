@@ -6,7 +6,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 49),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 21.0
   },
   {
     id: 102,
@@ -15,7 +15,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 100),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 20.9
   },
   {
     id: 103,
@@ -24,7 +24,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 777),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 20.8
   },
   {
     id: 104,
@@ -33,7 +33,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 44),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 21.4
   },
   {
     id: 105,
@@ -42,7 +42,7 @@ const rooms = [
     occupiedTo: null,
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 16.9
   },
   {
     id: 106,
@@ -78,7 +78,7 @@ const rooms = [
     occupiedTo: null,
     thermoId: '000b57ae7169',
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 16.5
   },
   {
     id: 203,
@@ -105,7 +105,7 @@ const rooms = [
     occupiedTo: null,
     thermoId: '000b57adf725',
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 15.9
   },
   {
     id: 205,
@@ -114,7 +114,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 58985),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 20.7
   },
   {
     id: 206,
@@ -123,7 +123,7 @@ const rooms = [
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 49),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: null
+    roomTemperature: 22.0
   }
 ]
 
