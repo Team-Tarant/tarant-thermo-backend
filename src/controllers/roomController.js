@@ -14,7 +14,8 @@ function setRoomMap() {
       occupiedFrom: r.occupiedFrom,
       occupiedTo: r.occupiedTo,
       thermoId: r.thermoId,
-      isWarmingUp: r.isWarmingUp
+      isWarmingUp: r.isWarmingUp,
+      roomTemperature: r.roomTemperature
     }
   })
 }
