@@ -11,16 +11,16 @@ const rooms = [
   {
     id: 102,
     occupied: false,
-    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 45),
+    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 10),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 100),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: 20.9
+    roomTemperature: 10.9
   },
   {
     id: 103,
     occupied: false,
-    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 666),
+    occupiedFrom: new Date(Date.now() + 1000 * 60 * 60 * 5),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 777),
     thermoId: null,
     isWarmingUp: false,
@@ -65,11 +65,11 @@ const rooms = [
   {
     id: 201,
     occupied: false,
-    occupiedFrom: new Date(Date.now() - 1000 * 60 * 60 * 46),
+    occupiedFrom: new Date(Date.now() - 1000 * 60 * 60 * 13),
     occupiedTo: new Date(Date.now() + 1000 * 60 * 60 * 43),
     thermoId: null,
     isWarmingUp: false,
-    roomTemperature: 23.7
+    roomTemperature: 9.7
   },
   {
     id: 202,
